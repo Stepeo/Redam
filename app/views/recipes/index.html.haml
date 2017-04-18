@@ -12,6 +12,7 @@
   .search_field
     =text_field_tag :search, nil, placeholder: "steaks, burgers, hotdogs, etc."
     =select_tag :cuisine, options_for_select(Cuisine.all.map{ |c| [c.name, c.id]})
+    =select_tag :diet, options_for_select(Diet.all.map{ |c| [c.name, c.id]})
     =submit_tag 'Search', {class: "btn span2 btn-realto-form btn_large"}
 
 

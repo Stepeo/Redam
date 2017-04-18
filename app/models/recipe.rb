@@ -9,7 +9,8 @@ class Recipe < ApplicationRecord
   def self.search(params)
     recipes = Recipe.where(cuisine_id: params[:cuisine].to_i)
     recipes = recipes.where("name like ? or description like ?", "%#{params[:search]}", "%#{params[:search]}") if params[:search].present?
+    recipes = recipes.joins(:diet_recipes).where('diet_recipes.diet_id' => params[:diet].to_i)
     recipes
   end
-  
+
 end
