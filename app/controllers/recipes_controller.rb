@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
+
   def index
+    @recipes = Recipe.all.order("created_at")
   end
 
   def show
@@ -22,11 +24,14 @@ class RecipesController < ApplicationController
 
   def find_recipe
   end
+  def search
+    @recipes = Recipe.search(params)
+  end
 
 
   private
   def recipes_params
-    params.require(:job).permit(:name, :description, :cuisine_id, :ingredients)
+    params.require(:recipe).permit(:name, :description, :cuisine_id, :ingredients)
   end
 
 end
