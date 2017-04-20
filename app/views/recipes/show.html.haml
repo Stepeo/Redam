@@ -1,2 +1,21 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+
+
+
+%h1 Recipes#show
+%p Find me in app/views/recipes/show.html.erb
+%ul.bxslider
+  - counter = 1
+  - @recipe.steps.order('created_at ASC').each do |step|
+    %li.slides.container
+      #counter
+        =counter
+        - counter += 1
+      #step.text-center.cuisine.col-md-4
+        #descriptions.text-center
+          =step.description
+        #items
+          - step.items.each do |item|
+            %p#item=  item
+        #amounts
+          - step.amounts.each do |amount|
+            %p#amount=  amount

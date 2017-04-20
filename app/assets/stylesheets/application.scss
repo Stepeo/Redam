@@ -3,22 +3,23 @@
 @media screen and (max-width: 320px) { @viewport { width: 320px; } }   @media screen and (min-width: 768px) and (max-width: 959px) { @viewport { width: 768px; } }
 
 
-body {
-  height: 100%;
-  background: linear-gradient(90deg, #1D9765 10%, #93F989 90%);
-  font-family: 'Lato', sans-serif;
-}
-
-
 
 html {
   height: 100%;
+  width: 100%;
 }
 
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  background: linear-gradient(90deg, #1D9765 10%, #93F989 90%);
+  font-family: 'Lato', sans-serif;
+  width: auto;
 }
 
 .clearfix:before,
@@ -89,4 +90,160 @@ html {
 @-o-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+
+
+.search_field{
+
+  background-color: white;
+  margin-left: calc(50% - 50vw);
+  width: 99vw;
+}
+
+.finder{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  border-bottom: 2px green;
+
+}
+
+.finder input#search{
+  margin-top: 20px;
+  width: 300px;
+  height: 50px;
+  background: #1abc9c;
+  border: none;
+  font-size: 10pt;
+  float: left;
+  border: 10px white;
+  color: green;
+  padding-left: 45px;
+}
+
+.finder input#search::-webkit-input-placeholder {
+   color: white;
+}
+
+.finder input#search:-moz-placeholder { /* Firefox 18- */
+   color: white;
+}
+
+.finder input#search::-moz-placeholder {  /* Firefox 19+ */
+   color: white;
+}
+
+.finder input#search:-ms-input-placeholder {
+   color: white;
+}
+
+.finder .icon{
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  z-index: 1;
+  color: #4f5b66;
+}
+
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 30%;
+  margin: 10px; /* demo only */
+}
+
+.custom-dropdown select {
+  background-color: #1abc9c;
+  color: #fff;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.5em;
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  width: 98%;
+  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+
+}
+
+.custom-dropdown::before { /*  Custom dropdown arrow cover */
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown select[disabled]::after {
+  color: #1abc9c;
+}
+
+.custom-dropdown::before {
+  background-color: #1abc9c;
+}
+
+.custom-dropdown::after {
+  color: rgba(0,0,0,.4);
+}
+
+#step{
+  padding: 15px;
+  margin: 10px;
+  border: 2px solid white;
+}
+
+#counter{
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  z-index: 1;
+  border: solid black 3px;
+  padding: 5px;
+
+}
+
+#items{
+  float: left;
+  text-align: left;
+  margin-right: 20px;
+  padding-left: 5px;
+
+}
+#amounts {
+  float: left;
+  text-align: left;
+
+
+}
+
+#descriptions{
+  padding: 10px;
+
+
 }

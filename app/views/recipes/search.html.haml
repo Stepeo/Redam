@@ -2,7 +2,7 @@
 
 - @recipes.each do |recipe|
   .option
-    %h2= recipe.name
+    %h2= link_to recipe.name, recipe
     %p= recipe.description
     %p= recipe.cuisine_id
     -recipe.highlights.each do |ingredient|

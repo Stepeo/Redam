@@ -1,27 +1,24 @@
 
 .search-form
 %p= "Find the perfect dish for you"
--# form_tag search_recipes_path, method: :get do |f|
-  - text_field_tag :search, nil, placeholder: "steaks, burgers, hotdogs, etc."
-  - select_tag :cuisine, options_for_select(Cuisine.all.map{ |c| [c.name, c.id]})
-  - submit_tag 'Search'
 
-
-.search_form
-=form_tag({controller: :recipes, action: :search}, {method: :get}) do |f|
-  .search_field
-    =text_field_tag :search, nil, placeholder: "steaks, burgers, hotdogs, etc."
-    =select_tag :cuisine, options_for_select(Cuisine.all.map{ |c| [c.name, c.id]})
-    =select_tag :diet, options_for_select(Diet.all.map{ |c| [c.name, c.id]})
-    =submit_tag 'Search', {class: "btn span2 btn-realto-form btn_large"}
-
-
-
-
-- @recipes.each do |recipe|
-  .option
-    %h2= recipe.name
-    %p= recipe.description
-    %p= recipe.cuisine_id
-    -recipe.highlights.each do |ingredient|
-      %p= ingredient
+.container
+  .search_form
+  =form_tag({controller: :recipes, action: :search}, {method: :get}) do |f|
+    .search_field.container
+      .row
+        .finder.text-center.col-md-4
+          %span.icon
+            %i.fa.fa-search
+          =text_field_tag :search, nil, placeholder: "steaks, burgers, hotdogs, etc."
+        %br
+      .row
+        %span.custom-dropdown.text-center.cuisine.col-md-4
+          =select_tag :cuisine, options_for_select(Cuisine.all.map{ |c| [c.name, c.id]}, class: 'choice'), {:prompt => 'Cuisine you want to try out'}
+        %span.custom-dropdown.text-center.diet.col-md-4
+          =select_tag :diet, options_for_select(Diet.all.map{ |c| [c.name, c.id]}, {class: "choice"}), {:prompt => 'Any specific dietary requirements'}
+        %span.custom-dropdown.text-center.timeofday.col-md-4
+          =select_tag :time_of_the_day, options_for_select(TimeOfTheDay.all.map{ |c| [c.name, c.id]}, {class: "choice"}), {:prompt => 'What are you looking for?'}
+    .row
+      .btn.span2.btn-realto-form.btn_large.text-center.col-md-4.col-md-offset4
+        =submit_tag 'Search'
