@@ -4,17 +4,21 @@
   %title= Food
   -# to add application instead of default when going with linux
 
+
   = stylesheet_link_tag    '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', media: 'all'
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'
   = javascript_include_tag '/assets/jquery.bxslider.min.js'
+  = javascript_include_tag '/assets/jquery.nice-select.js'
   = stylesheet_link_tag    '/assets/jquery.bxslider.css', media: 'all'
+  = stylesheet_link_tag    '/assets/nice-select.css', media: 'all'
   = csrf_meta_tags
 %body
   %nav.navbar.navbar-default
     .container
-      .navbar-brand Redam
+      .navbar-brand
+        = link_to "Redam", root_path
       %ul.nav.navbar-nav
   .container
     = yield

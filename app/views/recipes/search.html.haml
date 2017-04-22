@@ -1,9 +1,12 @@
 
-
+-x= 1
 - @recipes.each do |recipe|
-  .option
+  .feed-element.front-on-click
+    %button
+      %span#clickable
     %h2= link_to recipe.name, recipe
     %p= recipe.description
     %p= recipe.cuisine_id
     -recipe.highlights.each do |ingredient|
       %p= ingredient
+/= instead of button you can put a link_to with a raw html for the span inside

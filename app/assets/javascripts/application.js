@@ -19,3 +19,15 @@
 $(document).ready(function(){
   $('.bxslider').bxSlider();
 });
+
+$(document).ready(function() {
+  $('select').niceSelect();
+});
+
+
+
+$(document).ready(function() {
+  $("#clickable").click(function() {
+    $(this).closest('#popup').toggleClass("popup_feed_unhidden");
+  });
+});

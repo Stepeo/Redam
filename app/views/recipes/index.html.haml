@@ -1,6 +1,6 @@
 
 .search-form
-%p= "Find the perfect dish for you"
+%p.title.retroshadow= "Find the perfect dish for you"
 
 .container
   .search_form
@@ -13,12 +13,12 @@
           =text_field_tag :search, nil, placeholder: "steaks, burgers, hotdogs, etc."
         %br
       .row
-        %span.custom-dropdown.text-center.cuisine.col-md-4
+        .custom-dropdown.text-center.cuisine.col-md-4.form-group
           =select_tag :cuisine, options_for_select(Cuisine.all.map{ |c| [c.name, c.id]}, class: 'choice'), {:prompt => 'Cuisine you want to try out'}
-        %span.custom-dropdown.text-center.diet.col-md-4
+        .custom-dropdown.text-center.diet.col-md-4.form-group
           =select_tag :diet, options_for_select(Diet.all.map{ |c| [c.name, c.id]}, {class: "choice"}), {:prompt => 'Any specific dietary requirements'}
-        %span.custom-dropdown.text-center.timeofday.col-md-4
+        .custom-dropdown.text-center.timeofday.col-md-4.form-group
           =select_tag :time_of_the_day, options_for_select(TimeOfTheDay.all.map{ |c| [c.name, c.id]}, {class: "choice"}), {:prompt => 'What are you looking for?'}
     .row
-      .btn.span2.btn-realto-form.btn_large.text-center.col-md-4.col-md-offset4
-        =submit_tag 'Search'
+      .btn.span2.btn-realto-form.btn_large.text-center.col-md-4.col-md-offset-4.searchbutton
+        =submit_tag 'Search', class: "search"
