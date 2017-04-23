@@ -2,11 +2,14 @@
 -x= 1
 - @recipes.each do |recipe|
   .feed-element.front-on-click
-    %button
-      %span#clickable
+    - x = x + 1
     %h2= link_to recipe.name, recipe
     %p= recipe.description
     %p= recipe.cuisine_id
     -recipe.highlights.each do |ingredient|
       %p= ingredient
-/= instead of button you can put a link_to with a raw html for the span inside
+  .popup.popup_feed_hidden
+    %p= recipe.description
+    %p= recipe.cuisine_id
+    %span.closing_button= 'x'
+    =button_to "Start cooking", recipe, method: :get, class: :search

@@ -1,4 +1,4 @@
 class Item < ApplicationRecord
-  belongs_to :recipe
-  belongs_to :ingredient
+  has_many :recipes, through: :ingrediantizations
+  has_many :supermarkets, through: :finders
 end

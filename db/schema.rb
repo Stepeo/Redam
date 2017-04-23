@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420172159) do
+ActiveRecord::Schema.define(version: 20170423143923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,21 +36,31 @@ ActiveRecord::Schema.define(version: 20170420172159) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string   "name"
+  create_table "finders", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "supermarket_id"
+    t.integer  "price"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["item_id"], name: "index_finders_on_item_id", using: :btree
+    t.index ["supermarket_id"], name: "index_finders_on_supermarket_id", using: :btree
+  end
+
+  create_table "ingrediantizations", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_ingrediantizations_on_item_id", using: :btree
+    t.index ["recipe_id"], name: "index_ingrediantizations_on_recipe_id", using: :btree
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer  "recipe_id"
-    t.integer  "ingredient_id"
-    t.decimal  "amount"
-    t.string   "measure"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["ingredient_id"], name: "index_items_on_ingredient_id", using: :btree
-    t.index ["recipe_id"], name: "index_items_on_recipe_id", using: :btree
+    t.string   "name"
+    t.string   "brand"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -73,11 +83,25 @@ ActiveRecord::Schema.define(version: 20170420172159) do
     t.index ["recipe_id"], name: "index_steps_on_recipe_id", using: :btree
   end
 
+  create_table "supermarkets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.integer  "zipcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "country"
+  end
+
   create_table "time_of_the_days", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "finders", "items"
+  add_foreign_key "finders", "supermarkets"
+  add_foreign_key "ingrediantizations", "items"
+  add_foreign_key "ingrediantizations", "recipes"
   add_foreign_key "steps", "recipes"
 end

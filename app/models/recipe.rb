@@ -1,11 +1,12 @@
 class Recipe < ApplicationRecord
   belongs_to :cuisine
   belongs_to :time_of_the_day
-  has_many :items
   has_many :diet_recipes
   has_many :diets, through: :diet_recipes
   has_many :steps
+  has_many :items, through: :ingrediantizations
   alias_attribute :highlights, :ingredients
+
 
   def self.search(params)
     recipes = Recipe.where(cuisine_id: params[:cuisine].to_i)

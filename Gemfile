@@ -37,6 +37,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'bxslider-rails'
+gem 'geocoder'
+
 
 
 group :development, :test do

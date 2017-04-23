@@ -16,18 +16,20 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-$(document).ready(function(){
-  $('.bxslider').bxSlider();
-});
 
 $(document).ready(function() {
   $('select').niceSelect();
-});
+  $('.bxslider').bxSlider();
+  $(".feed-element").click(function(){
+      /*  $(".popup").toggle("popup_feed_hidden popup_feed_unhidden"); */
+        $(this).next('.popup').toggle("slow");
+        return false;
+
+    });
+    $(".closing_button").click(function(){
+        $(this).parent().toggle("slow");
 
 
+      });
 
-$(document).ready(function() {
-  $("#clickable").click(function() {
-    $(this).closest('#popup').toggleClass("popup_feed_unhidden");
-  });
 });

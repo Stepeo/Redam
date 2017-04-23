@@ -91,6 +91,7 @@ body {
   height: 22%;
   display: block;
   margin:1%;
+  z-index: 1;
   overflow:hidden;
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -146,6 +147,7 @@ body {
   background-color: white;
   margin-left: calc(50% - 50vw);
   width: 99vw;
+  
 
 }
 
@@ -261,13 +263,49 @@ body {
   background: white;
   padding: 20px;
   margin: 0 auto;
-  z-index: 999;
-}
-.popup_feed_unhidden{
-  display: block !important;
+  z-index: 1;
   text-align: center;
   background: white;
   padding: 20px;
-  margin: 0 auto;
-  z-index: 999;
+  z-index: 10000;
+  position: absolute;
+  top: 10%;
+  left: 24%;
+  width: 60%;
+  height: 85%;
+  min-width: 310px;
+  max-width: 1000px;
+  -webkit-transition: height 1.5s ease-in-out;
+   -moz-transition: height 1.5s ease-in-out;
+   -o-transition: height 1.5s ease-in-out;
+   transition: height 1.5s ease-in-out;
+}
+.popup_feed_unhidden{
+  text-align: center;
+  background: white;
+  padding: 20px;
+  z-index: 10000;
+  position: absolute;
+  top: 10%;
+  left: 24%;
+  width: 60%;
+  height: 85%;
+  min-width: 310px;
+  max-width: 1000px;
+  -webkit-transition: height 1.5s ease-in-out;
+   -moz-transition: height 1.5s ease-in-out;
+   -o-transition: height 1.5s ease-in-out;
+   transition: height 1.5s ease-in-out;
+   opacity: 1 !important;
+}
+
+.closing_button {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    background:#ccc;
+    position: absolute;
+    right:0;
+    top: 0;
+    cursor: pointer;
 }
