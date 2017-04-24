@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423143923) do
+ActiveRecord::Schema.define(version: 20170424181305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,31 +36,31 @@ ActiveRecord::Schema.define(version: 20170423143923) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "finders", force: :cascade do |t|
+  create_table "item_recipes", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.integer  "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_recipes_on_item_id", using: :btree
+    t.index ["recipe_id"], name: "index_item_recipes_on_recipe_id", using: :btree
+  end
+
+  create_table "item_supermarkets", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "supermarket_id"
     t.integer  "price"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["item_id"], name: "index_finders_on_item_id", using: :btree
-    t.index ["supermarket_id"], name: "index_finders_on_supermarket_id", using: :btree
-  end
-
-  create_table "ingrediantizations", force: :cascade do |t|
-    t.integer  "recipe_id"
-    t.integer  "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_ingrediantizations_on_item_id", using: :btree
-    t.index ["recipe_id"], name: "index_ingrediantizations_on_recipe_id", using: :btree
+    t.index ["item_id"], name: "index_item_supermarkets_on_item_id", using: :btree
+    t.index ["supermarket_id"], name: "index_item_supermarkets_on_supermarket_id", using: :btree
   end
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.string   "brand"
-    t.integer  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "amount"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -99,9 +99,9 @@ ActiveRecord::Schema.define(version: 20170423143923) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "finders", "items"
-  add_foreign_key "finders", "supermarkets"
-  add_foreign_key "ingrediantizations", "items"
-  add_foreign_key "ingrediantizations", "recipes"
+  add_foreign_key "item_recipes", "items"
+  add_foreign_key "item_recipes", "recipes"
+  add_foreign_key "item_supermarkets", "items"
+  add_foreign_key "item_supermarkets", "supermarkets"
   add_foreign_key "steps", "recipes"
 end
