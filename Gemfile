@@ -38,6 +38,7 @@ gem 'sass-rails', '>= 3.2'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'bxslider-rails'
 gem 'geocoder'
+gem 'gmaps4rails'
 
 
 

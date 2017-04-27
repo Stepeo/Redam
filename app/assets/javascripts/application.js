@@ -22,12 +22,12 @@ $(document).ready(function() {
   $('.bxslider').bxSlider();
   $(".feed-element").click(function(){
       /*  $(".popup").toggle("popup_feed_hidden popup_feed_unhidden"); */
-        $(this).next('.popup').toggle("slow");
+        $(this).next('.popup').toggle("scale");
         return false;
 
     });
     $(".closing_button").click(function(){
-        $(this).parent().toggle("slow");
+        $(this).parent().toggle("scale");
 
 
       });

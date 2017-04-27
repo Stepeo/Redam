@@ -85,6 +85,7 @@ body {
 
 .feed-element{
   background-color: grey;
+  padding: 30px;
   border-style: dotted;
   position: relative;
   width: 100%;
@@ -98,6 +99,22 @@ body {
         -ms-animation: fadein 2s; /* Internet Explorer */
          -o-animation: fadein 2s; /* Opera < 12.1 */
             animation: fadein 2s;
+
+   -webkit-transition: all 1s ease; /* Safari and Chrome */
+   -moz-transition: all 1s ease; /* Firefox */
+   -ms-transition: all 1s ease; /* IE 9 */
+   -o-transition: all 1s ease; /* Opera */
+   transition: all 1s ease;
+
+}
+
+.feed-element:hover{
+  -webkit-transform:scale(1.02); /* Safari and Chrome */
+    -moz-transform:scale(1.02); /* Firefox */
+    -ms-transform:scale(1.02); /* IE 9 */
+    -o-transform:scale(1.02); /* Opera */
+     transform:scale(1.02);
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
@@ -147,7 +164,6 @@ body {
   background-color: white;
   margin-left: calc(50% - 50vw);
   width: 99vw;
-  
 
 }
 
@@ -191,7 +207,7 @@ body {
 
 .finder .icon{
   position: absolute;
-  top: 50%;
+  top: 35px;
   left: 10%;
   z-index: 1;
   color: #4f5b66;
@@ -200,18 +216,20 @@ body {
   margin: 20px;
   text-align: center;
   background-color: #1abc9c !important;
+  min-width: 250px !important;
+
 }
 .list > li{
   /* color: white !important; */
-  min-width: 150px;
+  min-width: 250px;
 }
 
 .current{
-  min-width: 150px;
+  min-width: 350px;
 }
 
 .option{
-  min-width: 150px;
+  min-width: 250px;
   background-color: #1abc9c !important;
 }
 
@@ -296,16 +314,35 @@ body {
    -moz-transition: height 1.5s ease-in-out;
    -o-transition: height 1.5s ease-in-out;
    transition: height 1.5s ease-in-out;
-   opacity: 1 !important;
+   opacity: 1 !important
 }
 
 .closing_button {
     float:right;
     display:inline-block;
-    padding:2px 5px;
+    padding:20px;
     background:#ccc;
+    overflow: visible;
     position: absolute;
     right:0;
     top: 0;
+    margin: -10px;
+    border-radius: 100%;
     cursor: pointer;
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -ms-transition: all 1s ease; /* IE 9 */
+    -o-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+}
+
+.closing_button:hover {
+
+    background:green;
+    -webkit-transform:scale(1.1); /* Safari and Chrome */
+      -moz-transform:scale(1.1); /* Firefox */
+      -ms-transform:scale(1.1); /* IE 9 */
+      -o-transform:scale(1.1); /* Opera */
+       transform:scale(1.1);
+
 }
